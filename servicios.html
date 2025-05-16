@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Corazón Colonial</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .services-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(to right, var(--color-beige), #f5e6d3);
+            text-align: center;
+        }
+        .services-header h2 {
+            font-size: 2.5rem;
+            color: var(--color-brown);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .services-header p {
+            font-size: 1.2rem;
+            color: var(--color-brown-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+        .service-card i {
+            font-size: 3rem;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+            display: inline-block;
+        }
+        .service-card:hover i {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .service-card h3 {
+            font-family: var(--font-serif);
+            color: var(--color-brown);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .service-card p {
+            color: var(--color-brown-light);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        .amenities {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, #fff, var(--color-beige));
+        }
+        .amenities h2 {
+            font-size: 2rem;
+            color: var(--color-brown);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .amenities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+        }
+        .amenities-list li {
+            list-style: none;
+            padding: 1rem 1.5rem;
+            position: relative;
+            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 0.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .amenities-list li:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .amenities-list li::before {
+            content: "✦";
+            color: var(--color-gold);
+            position: absolute;
+            left: 0.5rem;
+            font-size: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo Corazón Colonial" class="logo-img">
+                <h1>Corazón Colonial</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="servicios.html" class="active">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="rooms-header">
+            <div class="container">
+                <h2>Nuestros Servicios</h2>
+                <p>Contamos con los mejores servicios para que disfrutes de tu estadía en Corazón Colonial</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="services-grid">
+                <!-- Services will be dynamically inserted here by components.js -->
+            </div>
+
+            <div class="amenities">
+                <h2>Amenities Incluidos</h2>
+                <ul class="amenities-list">
+                    <li>WiFi de alta velocidad</li>
+                    <li>Servicio de habitación 24/7</li>
+                    <li>Desayuno colonial</li>
+                    <li>Limpieza diaria</li>
+                    <li>Caja fuerte en habitación</li>
+                    <li>Servicio de conserjería</li>
+                    <li>Aire acondicionado</li>
+                    <li>Servicio de lavandería</li>
+                    <li>Recepción 24 horas</li>
+                    <li>Sala de yoga</li>
+                    <li>Business center</li>
+                    <li>Biblioteca</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo en blanco.png" alt="Corazón Colonial Logo" class="footer-logo">
+                    <h3>Corazón Colonial</h3>
+                    <p>Un refugio de elegancia y confort en el corazón de la ciudad colonial.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li>📞 +1 (809) 555-1234</li>
+                            <li>✉️ reservas@corazoncolonial.com</li>
+                            <li>Calle Las Mercedes #123</li>
+                            <li>Santo Domingo, R.D.</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Navegación</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="habitaciones.html">Habitaciones</a></li>
+                            <li><a href="servicios.html">Servicios</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/boutique.corazon_colonial/" class="social-icon large-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 Corazón Colonial. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+</body>
+</html>

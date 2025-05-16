@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Corazón Colonial</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-header {
+            padding: 120px 0 60px;
+            background-color: var(--color-beige);
+            text-align: center;
+        }
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-brown);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: var(--font-sans);
+        }
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info h3 {
+            font-family: var(--font-serif);
+            color: var(--color-brown);
+            margin-bottom: 1rem;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .contact-info-item i {
+            color: var(--color-gold);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo Corazón Colonial" class="logo-img">
+                <h1>Corazón Colonial</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="rooms-header">
+            <div class="container">
+                <h2>Contáctenos</h2>
+                <p>Estamos aquí para hacer su estadía inolvidable</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Envíenos un mensaje</h3>
+                    <form id="contact-form" onsubmit="return validateForm(event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">Seleccione una opción</option>
+                                <option value="reserva">Reserva</option>
+                                <option value="informacion">Información general</option>
+                                <option value="paquetes">Paquetes especiales</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Enviar mensaje</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Calle 5 #10-20, Monguí, Boyacá</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+57 (608) 123-4567</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/boutique.corazon_colonial/" class="social-icon" style="color: #4A3728; font-size: 1.5rem;"><i class="fab fa-instagram"></i> @boutique.corazon_colonial</a>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.947446543991!2d-72.84955668517888!3d5.723333995841761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a3f0b7c8b9f6d%3A0x7c8b9f6d0e3f0b7c!2zTW9uZ3XDrSwgQm95YWPDoQ!5e0!3m2!1ses!2sco!4v1620000000000!5m2!1ses!2sco" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo en blanco.png" alt="Corazón Colonial Logo" class="footer-logo">
+                    <h3>Corazón Colonial</h3>
+                    <p>Un refugio de elegancia y confort en el corazón de la ciudad colonial.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li> +1 (809) 555-1234</li>
+                            <li> reservas@corazoncolonial.com</li>
+                            <li>Calle Las Mercedes #123</li>
+                            <li>Santo Domingo, R.D.</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Navegación</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="habitaciones.html">Habitaciones</a></li>
+                            <li><a href="servicios.html">Servicios</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/boutique.corazon_colonial/" class="social-icon large-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 Corazón Colonial. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const formData = new FormData(form);
+            
+            // Here you would typically send the form data to a server
+            // For this demo, we'll just show a success message
+            alert('Mensaje enviado con éxito. Nos pondremos en contacto pronto.');
+            form.reset();
+            return false;
+        }
+    </script>
+</body>
+</html>

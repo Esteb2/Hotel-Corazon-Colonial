@@ -1,0 +1,123 @@
+/* Mobile First - Base styles are for 320px and up */
+
+/* Hamburger Menu Styles */
+@media screen and (max-width: 767px) {
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hamburger {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: var(--color-brown);
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: var(--color-brown);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger::before {
+        transform: translateY(-8px);
+    }
+
+    .hamburger::after {
+        transform: translateY(8px);
+    }
+
+    .menu-toggle.active .hamburger {
+        background-color: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    /* Hero Section */
+    .slide-content h2 {
+        font-size: 2rem;
+    }
+
+    /* Package Details */
+    .package-details {
+        flex-direction: column;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Tablet - 768px and up */
+@media screen and (min-width: 768px) {
+    .logo h1 {
+        font-size: 2rem;
+    }
+
+    .slide-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .package-details {
+        flex-direction: row;
+    }
+}
+
+/* Desktop - 1024px and up */
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 0;
+    }
+
+    .slide-content h2 {
+        font-size: 3rem;
+    }
+
+    .about,
+    .featured-package {
+        padding: 7rem 0;
+    }
+}

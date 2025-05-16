@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitaciones - Corazón Colonial</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo Corazón Colonial" class="logo-img">
+                <h1>Corazón Colonial</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html" class="active">Habitaciones</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="rooms-header">
+            <div class="container">
+                <h2>Nuestras Habitaciones</h2>
+                <p>Descubra el confort y la elegancia en cada una de nuestras habitaciones</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="rooms-grid">
+                <!-- Rooms will be dynamically inserted here by components.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo en blanco.png" alt="Corazón Colonial Logo" class="footer-logo">
+                    <h3>Corazón Colonial</h3>
+                    <p>Un refugio de elegancia y confort en el corazón de la ciudad colonial.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li> +1 (809) 555-1234</li>
+                            <li> reservas@corazoncolonial.com</li>
+                            <li>Calle Las Mercedes #123</li>
+                            <li>Santo Domingo, R.D.</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Navegación</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="habitaciones.html">Habitaciones</a></li>
+                            <li><a href="servicios.html">Servicios</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/boutique.corazon_colonial/" class="social-icon large-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 Corazón Colonial. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+</body>
+</html>
