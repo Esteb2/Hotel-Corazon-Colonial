@@ -104,11 +104,16 @@ class ComponentLoader {
         servicios.forEach(service => {
             const card = document.createElement('div');
             card.className = 'service-card';
-            card.innerHTML = `
+            let cardContent = `
                 <i class="fas fa-${service.icono}"></i>
                 <h3>${service.nombre}</h3>
                 <p>${service.descripcion}</p>
             `;
+            if (service.nombre === 'Restaurante') {
+                card.innerHTML = `<a href="restaurante.html" style="text-decoration:none;color:inherit;display:block;">${cardContent}</a>`;
+            } else {
+                card.innerHTML = cardContent;
+            }
             container.appendChild(card);
         });
     }

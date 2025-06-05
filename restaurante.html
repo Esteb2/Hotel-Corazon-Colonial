@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogón Colonial - Corazón Colonial</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .restaurant-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(to right, var(--color-beige), #f5e6d3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .restaurant-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/img/restaurante.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .restaurant-header .container {
+            position: relative;
+            z-index: 1;
+        }
+        .restaurant-header h2 {
+            font-size: 3.5rem;
+            color: var(--color-brown);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--font-serif);
+        }
+        .restaurant-header p {
+            font-size: 1.4rem;
+            color: var(--color-brown-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+        .restaurant-intro {
+            padding: 4rem 0;
+            background: white;
+        }
+        .restaurant-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-brown-light);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .menu-preview {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, var(--color-beige), white);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .menu-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        .menu-item:hover::before {
+            opacity: 0.05;
+        }
+        .menu-item h3 {
+            color: var(--color-brown);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+            position: relative;
+            z-index: 2;
+        }
+        .menu-item p {
+            color: var(--color-brown-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        .menu-item .price {
+            color: var(--color-gold);
+            font-weight: bold;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 2;
+        }
+        .qr-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: white;
+        }
+        .qr-section img {
+            max-width: 200px;
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .hours-section {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, white, var(--color-beige));
+        }
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hours-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .hours-item:hover {
+            transform: translateY(-3px);
+        }
+        .hours-item h3 {
+            color: var(--color-brown);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-serif);
+        }
+        .hours-item p {
+            color: var(--color-brown-light);
+            font-size: 1.1rem;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-brown);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 2rem auto;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background: var(--color-brown-dark);
+        }
+        .restaurant-visual {
+            background: #fff;
+            padding: 3rem 0 2rem 0;
+            text-align: center;
+        }
+        .visual-title {
+            font-size: 2.3rem;
+            color: var(--color-brown);
+            font-family: var(--font-serif);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .visual-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-brown-light);
+            margin-bottom: 2rem;
+        }
+        .main-restaurant-img {
+            width: 100%;
+            max-width: 900px;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+        .qr-img {
+            display: block;
+            margin: 2rem auto 0 auto;
+            max-width: 260px;
+            width: 90%;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+            background: #fff;
+            padding: 1.2rem;
+        }
+        @media (max-width: 700px) {
+            .main-restaurant-img {
+                height: 180px;
+            }
+            .visual-title {
+                font-size: 1.5rem;
+            }
+            .qr-img {
+                max-width: 95vw;
+                padding: 0.7rem;
+            }
+        }
+        .elegant-intro {
+            background: linear-gradient(135deg, #181c24 80%, #23263a 100%);
+            color: #f8f5f0;
+            padding: 4rem 0 3.5rem 0;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(24,28,36,0.10);
+            border-radius: 18px;
+            margin: 3rem auto 2.5rem auto;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+        }
+        .elegant-intro .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .intro-title {
+            font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+            font-size: 2.7rem;
+            font-variant: small-caps;
+            font-style: italic;
+            color: #ffe6b0;
+            letter-spacing: 2px;
+            margin: 0.5rem 0 1.5rem 0;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.10);
+        }
+        .elegant-intro p {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            color: #f8f5f0;
+            font-size: 1.18rem;
+            line-height: 1.8;
+            margin: 1.1rem 0;
+            text-align: center;
+        }
+        .intro-decor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.5rem 0 0.5rem 0;
+        }
+        .intro-icon {
+            font-size: 1.5rem;
+            color: #ffe6b0;
+            margin: 0 0.5rem;
+            letter-spacing: 0.2em;
+        }
+        .elegant-intro {
+            border: 1.5px solid rgba(255,230,176,0.13);
+            box-shadow: 0 8px 32px rgba(24,28,36,0.13);
+        }
+        .elegant-intro p:last-child {
+            margin-bottom: 0;
+        }
+        .elegant-intro::after {
+            content: '';
+            position: absolute;
+            left: 30px;
+            right: 30px;
+            bottom: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ffe6b0 40%, #ffe6b0 60%, transparent);
+            opacity: 0.25;
+        }
+        .elegant-intro::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            right: 30px;
+            top: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ffe6b0 40%, #ffe6b0 60%, transparent);
+            opacity: 0.25;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease 0.2s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @media (max-width: 700px) {
+            .elegant-intro {
+                padding: 2.2rem 0 1.5rem 0;
+                border-radius: 10px;
+            }
+            .intro-title {
+                font-size: 1.5rem;
+            }
+            .elegant-intro .container {
+                padding: 0 0.5rem;
+            }
+        }
+        .menu-preview.elegant-intro {
+            background: linear-gradient(135deg, #f8f5f0 80%, #fdf6e3 100%);
+            color: #23263a;
+            box-shadow: 0 8px 32px rgba(24,28,36,0.07);
+            border-radius: 18px;
+            margin: 3rem auto 2.5rem auto;
+            max-width: 1100px;
+            border: 1.5px solid rgba(255,230,176,0.10);
+        }
+        .menu-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.2rem;
+            justify-content: center;
+            align-items: stretch;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        .menu-card {
+            background: linear-gradient(135deg, #181c24 80%, #23263a 100%);
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(180,150,80,0.08), 0 1.5px 8px rgba(24,28,36,0.07);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            border: 1.5px solid #f3e2b7;
+            min-height: 420px;
+            position: relative;
+        }
+        .menu-card:hover {
+            box-shadow: 0 10px 32px rgba(180,150,80,0.13), 0 4px 18px rgba(24,28,36,0.10);
+            transform: translateY(-5px);
+        }
+        .menu-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            box-shadow: 0 2px 12px rgba(180,150,80,0.10);
+            background: #f8f5f0;
+        }
+        .menu-card-content {
+            padding: 2rem 1.3rem 1.3rem 1.3rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .menu-card-title {
+            font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            color: #b08d3a;
+            margin: 1.1rem 0 0.7rem 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .menu-card-icon {
+            font-size: 1.1rem;
+            color: #b08d3a;
+            margin-right: 0.3rem;
+        }
+        .menu-card-desc {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            color: #23263a;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            text-align: center;
+            margin: 0;
+        }
+        @media (max-width: 900px) {
+            .menu-cards-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .menu-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .menu-card-img {
+                height: 140px;
+            }
+            .menu-card-content {
+                padding: 1.2rem 0.7rem 1rem 0.7rem;
+            }
+        }
+        .main-dishes-section {
+            background: #fff;
+            padding: 2.5rem 0 2.5rem 0;
+        }
+        .main-dishes-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #232323;
+            margin-bottom: 2.2rem;
+            text-align: left;
+        }
+        .main-dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .dish-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(24,28,36,0.10);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .dish-card:hover {
+            box-shadow: 0 8px 32px rgba(24,28,36,0.13);
+            transform: translateY(-5px);
+        }
+        .dish-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        .dish-info {
+            padding: 1.3rem 1.3rem 1.1rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .dish-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #232323;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+        .dish-desc {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            text-align: left;
+            margin: 0;
+        }
+        @media (max-width: 900px) {
+            .main-dishes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .main-dishes-grid {
+                grid-template-columns: 1fr;
+            }
+            .dish-img {
+                height: 140px;
+            }
+        }
+        .hero-restaurant {
+            min-height: 80vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .hero-overlay {
+            width: 100%;
+            height: 100%;
+            background: rgba(24,28,36,0.82);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            padding: 2.5rem 0;
+        }
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            padding: 2.5rem 2rem 2rem 2rem;
+            background: rgba(24,28,36,0.60);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(24,28,36,0.18);
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.7rem;
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            color: #fff;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+        }
+        .hero-desc {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            font-size: 1.13rem;
+            color: #f8f5f0;
+            margin-bottom: 2.2rem;
+            line-height: 1.7;
+        }
+        .hero-btn {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            background: #b08d3a;
+            color: #fff;
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            font-size: 1.08rem;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(24,28,36,0.10);
+            transition: background 0.3s, transform 0.3s;
+        }
+        .hero-btn:hover {
+            background: #a07c2a;
+            transform: translateY(-2px) scale(1.04);
+        }
+        @media (max-width: 700px) {
+            .hero-content {
+                padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+        }
+        .qr-section-redesign {
+            background: #181c24;
+            padding: 2.5rem 0 2.5rem 0;
+            text-align: center;
+        }
+        .qr-title {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-bottom: 2.2rem;
+        }
+        .qr-card {
+            background: #f9e3d3;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(24,28,36,0.13);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 0;
+            margin: 0 auto 2rem auto;
+            max-width: 700px;
+        }
+        .qr-img-big {
+            width: 320px;
+            max-width: 90vw;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 18px rgba(24,28,36,0.10);
+        }
+        .qr-desc {
+            color: #fff;
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (max-width: 700px) {
+            .qr-card {
+                padding: 1.2rem 0.2rem;
+            }
+            .qr-title {
+                font-size: 1.1rem;
+            }
+            .qr-img-big {
+                width: 95vw;
+                max-width: 95vw;
+            }
+        }
+        .hours-simple-section {
+            background: #fafafa;
+            padding: 1.5rem 0 1.5rem 0;
+        }
+        .hours-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #232323;
+            margin-bottom: 1.2rem;
+            text-align: left;
+            margin-left: 1.5rem;
+        }
+        .hours-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hour-row {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            color: #232323;
+            font-size: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .hour-label {
+            font-weight: 600;
+            min-width: 90px;
+            text-align: right;
+        }
+        .hour-time {
+            font-weight: 400;
+            min-width: 140px;
+            text-align: left;
+        }
+        @media (max-width: 600px) {
+            .hours-title {
+                margin-left: 0.5rem;
+                font-size: 1rem;
+            }
+            .hour-row {
+                font-size: 0.97rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.1rem;
+            }
+            .hour-label, .hour-time {
+                min-width: unset;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo Corazón Colonial" class="logo-img">
+                <h1>Corazón Colonial</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-restaurant" style="background-image: url('assets/Restaurante.jpg');">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1 class="hero-title">El Fogón Colonial</h1>
+                    <p class="hero-desc">Bienvenido a El Fogón Colonial, donde la majestuosidad de la historia colonial se entrelaza con los vibrantes sabores de la cocina venezolana moderna. Nuestro restaurante es un santuario de arte culinario y elegancia, ofreciendo una experiencia única que te transporta a una época de refinamiento. Cada plato es una obra maestra, elaborada con los mejores ingredientes e inspirada en la tradición y la innovación. Descubre un viaje de sabor y herencia en cada visita.</p>
+                    <a href="#menu-principal" class="hero-btn">Explorar el Menú</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-dishes-section">
+            <div class="container">
+                <h2 class="main-dishes-title" id="menu-principal">Platos Principales</h2>
+                <div class="main-dishes-grid">
+                    <div class="dish-card">
+                        <img src="assets/recetaUno.jpeg" alt="Parrilla Colonial" class="dish-img">
+                        <div class="dish-info">
+                            <h3 class="dish-name">Parrilla Colonial</h3>
+                            <p class="dish-desc">Una selección de carnes a la parrilla, marinadas en especias tradicionales y servidas con guarniciones criollas.</p>
+                        </div>
+                    </div>
+                    <div class="dish-card">
+                        <img src="assets/RecetaDos.jpg" alt="Langostinos del Mar Caribe" class="dish-img">
+                        <div class="dish-info">
+                            <h3 class="dish-name">Langostinos del Mar Caribe</h3>
+                            <p class="dish-desc">Langostinos frescos salteados con ajo, hierbas y un toque de vino blanco, evocando los sabores del mar Caribe.</p>
+                        </div>
+                    </div>
+                    <div class="dish-card">
+                        <img src="assets/recetaTres.jpeg" alt="Asado Negro Caraqueño" class="dish-img">
+                        <div class="dish-info">
+                            <h3 class="dish-name">Asado Negro Caraqueño</h3>
+                            <p class="dish-desc">Un clásico asado de res cocinado lentamente en un adobo agridulce, representando la rica tradición culinaria de Caracas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="qr-section-redesign">
+            <div class="container">
+                <h2 class="qr-title">Escanea el código QR para explorar nuestro menú completo</h2>
+                <div class="qr-card">
+                    <img src="assets/qr-menu.png" alt="QR Menu El Fogón Colonial" class="qr-img-big">
+                </div>
+                <p class="qr-desc">Escanea este código con tu dispositivo móvil para acceder a nuestro menú completo y descubrir todos los sabores que El Fogón Colonial tiene para ti.</p>
+            </div>
+        </section>
+
+        <section class="hours-simple-section">
+            <div class="container">
+                <h2 class="hours-title">Horarios de Atención</h2>
+                <div class="hours-list">
+                    <div class="hour-row"><span class="hour-label">Desayuno</span><span class="hour-time">7:00 AM – 10:00 AM</span></div>
+                    <div class="hour-row"><span class="hour-label">Almuerzo</span><span class="hour-time">12:00 PM – 3:00 PM</span></div>
+                    <div class="hour-row"><span class="hour-label">Cena</span><span class="hour-time">6:00 PM – 10:30 PM</span></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="text-align: center;">
+            <a href="index.html" class="back-button">Volver al Inicio</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo en blanco.png" alt="Corazón Colonial Logo" class="footer-logo">
+                    <h3>Corazón Colonial</h3>
+                    <p>Un refugio de elegancia y confort en el corazón de la ciudad colonial.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li>📞 +1 (809) 555-1234</li>
+                            <li>✉️ reservas@corazoncolonial.com</li>
+                            <li>Calle Las Mercedes #123</li>
+                            <li>Santo Domingo, R.D.</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Navegación</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="habitaciones.html">Habitaciones</a></li>
+                            <li><a href="servicios.html">Servicios</a></li>
+                            <li><a href="restaurante.html">Restaurante</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/boutique.corazon_colonial/" class="social-icon large-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 Corazón Colonial. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html> 
