@@ -326,6 +326,172 @@
                 padding: 0 0.5rem;
             }
         }
+        .menu-preview.elegant-intro {
+            background: linear-gradient(135deg, #f8f5f0 80%, #fdf6e3 100%);
+            color: #23263a;
+            box-shadow: 0 8px 32px rgba(24,28,36,0.07);
+            border-radius: 18px;
+            margin: 3rem auto 2.5rem auto;
+            max-width: 1100px;
+            border: 1.5px solid rgba(255,230,176,0.10);
+        }
+        .menu-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.2rem;
+            justify-content: center;
+            align-items: stretch;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        .menu-card {
+            background: linear-gradient(135deg, #181c24 80%, #23263a 100%);
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(180,150,80,0.08), 0 1.5px 8px rgba(24,28,36,0.07);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            border: 1.5px solid #f3e2b7;
+            min-height: 420px;
+            position: relative;
+        }
+        .menu-card:hover {
+            box-shadow: 0 10px 32px rgba(180,150,80,0.13), 0 4px 18px rgba(24,28,36,0.10);
+            transform: translateY(-5px);
+        }
+        .menu-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            box-shadow: 0 2px 12px rgba(180,150,80,0.10);
+            background: #f8f5f0;
+        }
+        .menu-card-content {
+            padding: 2rem 1.3rem 1.3rem 1.3rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .menu-card-title {
+            font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            color: #b08d3a;
+            margin: 1.1rem 0 0.7rem 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .menu-card-icon {
+            font-size: 1.1rem;
+            color: #b08d3a;
+            margin-right: 0.3rem;
+        }
+        .menu-card-desc {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            color: #23263a;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            text-align: center;
+            margin: 0;
+        }
+        @media (max-width: 900px) {
+            .menu-cards-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .menu-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .menu-card-img {
+                height: 140px;
+            }
+            .menu-card-content {
+                padding: 1.2rem 0.7rem 1rem 0.7rem;
+            }
+        }
+        .main-dishes-section {
+            background: #fff;
+            padding: 2.5rem 0 2.5rem 0;
+        }
+        .main-dishes-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #232323;
+            margin-bottom: 2.2rem;
+            text-align: left;
+        }
+        .main-dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .dish-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(24,28,36,0.10);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .dish-card:hover {
+            box-shadow: 0 8px 32px rgba(24,28,36,0.13);
+            transform: translateY(-5px);
+        }
+        .dish-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        .dish-info {
+            padding: 1.3rem 1.3rem 1.1rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .dish-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #232323;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+        .dish-desc {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            text-align: left;
+            margin: 0;
+        }
+        @media (max-width: 900px) {
+            .main-dishes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .main-dishes-grid {
+                grid-template-columns: 1fr;
+            }
+            .dish-img {
+                height: 140px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -349,21 +515,6 @@
     </header>
 
     <main>
-        <section class="restaurant-header">
-            <div class="container">
-                <h2>Fogón Colonial</h2>
-                <p>Gastronomía de autor en un entorno inolvidable</p>
-            </div>
-        </section>
-
-        <section class="restaurant-visual">
-            <div class="container">
-                <h2 class="visual-title">Fogón Colonial</h2>
-                <p class="visual-subtitle">Cocina venezolana con sabor a tradición</p>
-                <img src="assets/Restaurante.jpg" alt="Restaurante Fogón Colonial" class="main-restaurant-img">
-            </div>
-        </section>
-
         <section class="restaurant-intro elegant-intro fade-in">
             <div class="container">
                 <div class="intro-decor">
@@ -378,25 +529,37 @@
                 <p>Te invitamos a descubrir sabores inolvidables.</p>
             </div>
         </section>
-
-        <section class="menu-preview">
+        <section class="restaurant-visual">
             <div class="container">
-                <h2 class="section-title">Nuestros Platos Principales</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <h3>Parrilla Mixta Venezolana</h3>
-                        <p>Selección premium de cortes de res, cerdo y pollo, acompañados de chorizo, morcilla, yuca, chuchuhuasi y guasacaca.</p>
-                        <span class="price">$54.000</span>
+                <p class="visual-subtitle">Cocina venezolana con sabor a tradición</p>
+                <img src="assets/Restaurante.jpg" alt="Restaurante Fogón Colonial" class="main-restaurant-img">
+            </div>
+        </section>
+
+        <section class="main-dishes-section">
+            <div class="container">
+                <h2 class="main-dishes-title">Platos Principales</h2>
+                <div class="main-dishes-grid">
+                    <div class="dish-card">
+                        <img src="assets/recetaUno.jpeg" alt="Parrilla Colonial" class="dish-img">
+                        <div class="dish-info">
+                            <h3 class="dish-name">Parrilla Colonial</h3>
+                            <p class="dish-desc">Una selección de carnes a la parrilla, marinadas en especias tradicionales y servidas con guarniciones criollas.</p>
+                        </div>
                     </div>
-                    <div class="menu-item">
-                        <h3>Langostinos a la Plancha</h3>
-                        <p>Langostinos dorados a la plancha, con un toque de ajo y limón.</p>
-                        <span class="price">$46.200</span>
+                    <div class="dish-card">
+                        <img src="assets/RecetaDos.jpg" alt="Langostinos del Mar Caribe" class="dish-img">
+                        <div class="dish-info">
+                            <h3 class="dish-name">Langostinos del Mar Caribe</h3>
+                            <p class="dish-desc">Langostinos frescos salteados con ajo, hierbas y un toque de vino blanco, evocando los sabores del mar Caribe.</p>
+                        </div>
                     </div>
-                    <div class="menu-item">
-                        <h3>Pastel de Morrocoy</h3>
-                        <p>Carne de morrocoy guisada en masa de maíz y envuelta en hojas de bijao.</p>
-                        <span class="price">$32.000</span>
+                    <div class="dish-card">
+                        <img src="assets/recetaTres.jpeg" alt="Asado Negro Caraqueño" class="dish-img">
+                        <div class="dish-info">
+                            <h3 class="dish-name">Asado Negro Caraqueño</h3>
+                            <p class="dish-desc">Un clásico asado de res cocinado lentamente en un adobo agridulce, representando la rica tradición culinaria de Caracas.</p>
+                        </div>
                     </div>
                 </div>
             </div>
