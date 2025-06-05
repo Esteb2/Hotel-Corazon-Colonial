@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogón Colonial - Corazón Colonial</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .restaurant-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(to right, var(--color-beige), #f5e6d3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .restaurant-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/img/restaurante.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .restaurant-header .container {
+            position: relative;
+            z-index: 1;
+        }
+        .restaurant-header h2 {
+            font-size: 3.5rem;
+            color: var(--color-brown);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--font-serif);
+        }
+        .restaurant-header p {
+            font-size: 1.4rem;
+            color: var(--color-brown-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+        .restaurant-intro {
+            padding: 4rem 0;
+            background: white;
+        }
+        .restaurant-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-brown-light);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .menu-preview {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, var(--color-beige), white);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .menu-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        .menu-item:hover::before {
+            opacity: 0.05;
+        }
+        .menu-item h3 {
+            color: var(--color-brown);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+            position: relative;
+            z-index: 2;
+        }
+        .menu-item p {
+            color: var(--color-brown-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        .menu-item .price {
+            color: var(--color-gold);
+            font-weight: bold;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 2;
+        }
+        .qr-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: white;
+        }
+        .qr-section img {
+            max-width: 200px;
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .hours-section {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, white, var(--color-beige));
+        }
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hours-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .hours-item:hover {
+            transform: translateY(-3px);
+        }
+        .hours-item h3 {
+            color: var(--color-brown);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-serif);
+        }
+        .hours-item p {
+            color: var(--color-brown-light);
+            font-size: 1.1rem;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-brown);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 2rem auto;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background: var(--color-brown-dark);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo Corazón Colonial" class="logo-img">
+                <h1>Corazón Colonial</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="restaurante.html" class="active">Restaurante</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="restaurant-header">
+            <div class="container">
+                <h2>Fogón Colonial</h2>
+                <p>Gastronomía de autor en un entorno inolvidable</p>
+            </div>
+        </section>
+
+        <section class="restaurant-intro">
+            <div class="container">
+                <p>En el corazón de nuestro hotel boutique, Fogón Colonial ofrece una experiencia culinaria única que fusiona la tradición venezolana con técnicas modernas. Nuestro chef ejecutivo selecciona cuidadosamente ingredientes locales y de temporada para crear platos que cuentan historias a través de cada bocado. El ambiente íntimo y acogedor de nuestro restaurante, con su decoración colonial cuidadosamente preservada, proporciona el escenario perfecto para una experiencia gastronómica memorable. Cada plato es una celebración de la rica herencia culinaria venezolana, reinterpretada con un toque contemporáneo.</p>
+            </div>
+        </section>
+
+        <section class="menu-preview">
+            <div class="container">
+                <h2 class="section-title">Nuestros Platos Principales</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h3>Parrilla Mixta Venezolana</h3>
+                        <p>Selección premium de cortes de res, cerdo y pollo, acompañados de chorizo, morcilla, yuca, chuchuhuasi y guasacaca.</p>
+                        <span class="price">$54.000</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Langostinos a la Plancha</h3>
+                        <p>Langostinos dorados a la plancha, con un toque de ajo y limón.</p>
+                        <span class="price">$46.200</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Pastel de Morrocoy</h3>
+                        <p>Carne de morrocoy guisada en masa de maíz y envuelta en hojas de bijao.</p>
+                        <span class="price">$32.000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="qr-section">
+            <div class="container">
+                <h2 class="section-title">Ver Menú Completo</h2>
+                <p>Escanea el código QR para explorar todos nuestros platos y bebidas</p>
+                <img src="assets/img/qr-menu.png" alt="Código QR del menú">
+            </div>
+        </section>
+
+        <section class="hours-section">
+            <div class="container">
+                <h2 class="section-title">Horarios de Atención</h2>
+                <div class="hours-grid">
+                    <div class="hours-item">
+                        <h3>Desayuno</h3>
+                        <p>7:00 AM – 10:00 AM</p>
+                    </div>
+                    <div class="hours-item">
+                        <h3>Almuerzo</h3>
+                        <p>12:00 PM – 3:00 PM</p>
+                    </div>
+                    <div class="hours-item">
+                        <h3>Cena</h3>
+                        <p>6:00 PM – 10:30 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="text-align: center;">
+            <a href="index.html" class="back-button">Volver al Inicio</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo en blanco.png" alt="Corazón Colonial Logo" class="footer-logo">
+                    <h3>Corazón Colonial</h3>
+                    <p>Un refugio de elegancia y confort en el corazón de la ciudad colonial.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li>📞 +1 (809) 555-1234</li>
+                            <li>✉️ reservas@corazoncolonial.com</li>
+                            <li>Calle Las Mercedes #123</li>
+                            <li>Santo Domingo, R.D.</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Navegación</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="habitaciones.html">Habitaciones</a></li>
+                            <li><a href="servicios.html">Servicios</a></li>
+                            <li><a href="restaurante.html">Restaurante</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/boutique.corazon_colonial/" class="social-icon large-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon large-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 Corazón Colonial. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html> 
