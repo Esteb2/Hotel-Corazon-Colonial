@@ -492,6 +492,183 @@
                 height: 140px;
             }
         }
+        .hero-restaurant {
+            min-height: 80vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .hero-overlay {
+            width: 100%;
+            height: 100%;
+            background: rgba(24,28,36,0.82);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            padding: 2.5rem 0;
+        }
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            padding: 2.5rem 2rem 2rem 2rem;
+            background: rgba(24,28,36,0.60);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(24,28,36,0.18);
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.7rem;
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            color: #fff;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+        }
+        .hero-desc {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            font-size: 1.13rem;
+            color: #f8f5f0;
+            margin-bottom: 2.2rem;
+            line-height: 1.7;
+        }
+        .hero-btn {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            background: #b08d3a;
+            color: #fff;
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            font-size: 1.08rem;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(24,28,36,0.10);
+            transition: background 0.3s, transform 0.3s;
+        }
+        .hero-btn:hover {
+            background: #a07c2a;
+            transform: translateY(-2px) scale(1.04);
+        }
+        @media (max-width: 700px) {
+            .hero-content {
+                padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+        }
+        .qr-section-redesign {
+            background: #181c24;
+            padding: 2.5rem 0 2.5rem 0;
+            text-align: center;
+        }
+        .qr-title {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-bottom: 2.2rem;
+        }
+        .qr-card {
+            background: #f9e3d3;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(24,28,36,0.13);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 0;
+            margin: 0 auto 2rem auto;
+            max-width: 700px;
+        }
+        .qr-img-big {
+            width: 320px;
+            max-width: 90vw;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 18px rgba(24,28,36,0.10);
+        }
+        .qr-desc {
+            color: #fff;
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (max-width: 700px) {
+            .qr-card {
+                padding: 1.2rem 0.2rem;
+            }
+            .qr-title {
+                font-size: 1.1rem;
+            }
+            .qr-img-big {
+                width: 95vw;
+                max-width: 95vw;
+            }
+        }
+        .hours-simple-section {
+            background: #fafafa;
+            padding: 1.5rem 0 1.5rem 0;
+        }
+        .hours-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #232323;
+            margin-bottom: 1.2rem;
+            text-align: left;
+            margin-left: 1.5rem;
+        }
+        .hours-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hour-row {
+            font-family: 'Lato', 'Open Sans', Arial, sans-serif;
+            color: #232323;
+            font-size: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .hour-label {
+            font-weight: 600;
+            min-width: 90px;
+            text-align: right;
+        }
+        .hour-time {
+            font-weight: 400;
+            min-width: 140px;
+            text-align: left;
+        }
+        @media (max-width: 600px) {
+            .hours-title {
+                margin-left: 0.5rem;
+                font-size: 1rem;
+            }
+            .hour-row {
+                font-size: 0.97rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.1rem;
+            }
+            .hour-label, .hour-time {
+                min-width: unset;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -508,37 +685,25 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="habitaciones.html">Habitaciones</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="restaurante.html" class="active">Restaurante</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="restaurant-intro elegant-intro fade-in">
-            <div class="container">
-                <div class="intro-decor">
-                    <span class="intro-icon">✦</span>
+        <section class="hero-restaurant" style="background-image: url('assets/Restaurante.jpg');">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1 class="hero-title">El Fogón Colonial</h1>
+                    <p class="hero-desc">Bienvenido a El Fogón Colonial, donde la majestuosidad de la historia colonial se entrelaza con los vibrantes sabores de la cocina venezolana moderna. Nuestro restaurante es un santuario de arte culinario y elegancia, ofreciendo una experiencia única que te transporta a una época de refinamiento. Cada plato es una obra maestra, elaborada con los mejores ingredientes e inspirada en la tradición y la innovación. Descubre un viaje de sabor y herencia en cada visita.</p>
+                    <a href="#menu-principal" class="hero-btn">Explorar el Menú</a>
                 </div>
-                <h2 class="intro-title">El Fogón Colonial</h2>
-                <div class="intro-decor">
-                    <span class="intro-icon">✦</span>
-                </div>
-                <p>En el corazón de nuestra casa colonial, El Fogón Colonial rinde homenaje a los sabores tradicionales de Venezuela con un toque elegante y contemporáneo. Nuestro menú combina entradas exóticas y platos fuertes que celebran lo mejor de nuestra cocina.</p>
-                <p>Cada ingrediente ha sido elegido por su frescura y autenticidad, dando vida a una experiencia que respeta las raíces y se atreve a innovar. Acompañado de un ambiente cálido y una decoración colonial, cada visita es un viaje por la herencia gastronómica venezolana.</p>
-                <p>Te invitamos a descubrir sabores inolvidables.</p>
-            </div>
-        </section>
-        <section class="restaurant-visual">
-            <div class="container">
-                <p class="visual-subtitle">Cocina venezolana con sabor a tradición</p>
-                <img src="assets/Restaurante.jpg" alt="Restaurante Fogón Colonial" class="main-restaurant-img">
             </div>
         </section>
 
         <section class="main-dishes-section">
             <div class="container">
-                <h2 class="main-dishes-title">Platos Principales</h2>
+                <h2 class="main-dishes-title" id="menu-principal">Platos Principales</h2>
                 <div class="main-dishes-grid">
                     <div class="dish-card">
                         <img src="assets/recetaUno.jpeg" alt="Parrilla Colonial" class="dish-img">
@@ -565,30 +730,23 @@
             </div>
         </section>
 
-        <section class="qr-section">
+        <section class="qr-section-redesign">
             <div class="container">
-                <h2 class="section-title">Ver Menú Completo</h2>
-                <p>Escanea el código QR para explorar todos nuestros platos y bebidas</p>
-                <img src="assets/qr-menu.png" alt="Código QR del menú" class="qr-img">
+                <h2 class="qr-title">Escanea el código QR para explorar nuestro menú completo</h2>
+                <div class="qr-card">
+                    <img src="assets/qr-menu.png" alt="QR Menu El Fogón Colonial" class="qr-img-big">
+                </div>
+                <p class="qr-desc">Escanea este código con tu dispositivo móvil para acceder a nuestro menú completo y descubrir todos los sabores que El Fogón Colonial tiene para ti.</p>
             </div>
         </section>
 
-        <section class="hours-section">
+        <section class="hours-simple-section">
             <div class="container">
-                <h2 class="section-title">Horarios de Atención</h2>
-                <div class="hours-grid">
-                    <div class="hours-item">
-                        <h3>Desayuno</h3>
-                        <p>7:00 AM – 10:00 AM</p>
-                    </div>
-                    <div class="hours-item">
-                        <h3>Almuerzo</h3>
-                        <p>12:00 PM – 3:00 PM</p>
-                    </div>
-                    <div class="hours-item">
-                        <h3>Cena</h3>
-                        <p>6:00 PM – 10:30 PM</p>
-                    </div>
+                <h2 class="hours-title">Horarios de Atención</h2>
+                <div class="hours-list">
+                    <div class="hour-row"><span class="hour-label">Desayuno</span><span class="hour-time">7:00 AM – 10:00 AM</span></div>
+                    <div class="hour-row"><span class="hour-label">Almuerzo</span><span class="hour-time">12:00 PM – 3:00 PM</span></div>
+                    <div class="hour-row"><span class="hour-label">Cena</span><span class="hour-time">6:00 PM – 10:30 PM</span></div>
                 </div>
             </div>
         </section>
