@@ -2,19 +2,19 @@
 const habitaciones = [
     {
         nombre: "Suite Colonial",
-        precio: "$300.000",
+        precio: "$235.000",
         tamaño: "53m²",
         comodidades: ["Bañera de mármol", "WiFi premium", "Vista al jardín", "Minibar", "Smart TV 55\""]
     },
     {
         nombre: "Junior Suite",
-        precio: "$250.000",
+        precio: "$180.000",
         tamaño: "42m²",
         comodidades: ["Ducha lluvia", "WiFi premium", "Balcón privado", "Smart TV 50\""]
     },
     {
         nombre: "Habitación Estándar",
-        precio: "$180.000",
+        precio: "$140.000",
         tamaño: "35m²",
         comodidades: ["Ducha moderna", "WiFi", "Smart TV 43\"", "Escritorio de trabajo"]
     }
